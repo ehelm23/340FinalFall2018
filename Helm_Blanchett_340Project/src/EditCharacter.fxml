@@ -2,9 +2,8 @@
 
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.layout.AnchorPane?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="EditCharacterController">
    <children>
@@ -14,10 +13,6 @@
             <Button mnemonicParsing="false" text="Next" />
         </buttons>
       </ButtonBar>
-      <TextField layoutX="151.0" layoutY="86.0" promptText="Character Name" />
-      <TextField layoutX="151.0" layoutY="125.0" promptText=" Attack (1.0 - 100.0)" />
-      <TextField layoutX="151.0" layoutY="166.0" promptText="Defense (1.0 - 100.0)" />
-      <TextField layoutX="151.0" layoutY="207.0" promptText="Speed (1.0 - 100.0)" />
-      <TextField layoutX="151.0" layoutY="246.0" promptText="Hit Points (100.0 - 500.0)" />
+      <ChoiceBox fx:id="charBox" layoutX="52.0" layoutY="87.0" prefWidth="150.0" />
    </children>
 </AnchorPane>

@@ -3,13 +3,14 @@
 public class Character {
 
     // Attributes
-
+    public String name;
     public double attack;
     public double defense;
     public double speed;
-    public int maxHP;
+    public double maxHP;
 
-    public Character(double attack, double defense, double speed, int health){
+    public Character(double attack, double defense, double speed, double health){
+        this.name = "";
         this.attack = attack;
         this.defense = defense;
         this.speed = speed;
@@ -45,6 +46,24 @@ public class Character {
         speed -= value;
     }
 
+    public String getName(){
+        return this.name;
+    }
+    public void setName(String name){
+        this.name = name;
+    }
+    public double getAttack(){
+        return this.attack;
+    }
+    public double getDefense(){
+        return this.defense;
+    }
+    public double getSpeed(){
+        return this.speed;
+    }
+    public double getHP(){
+        return this.maxHP;
+    }
     // Restore health
 
 }

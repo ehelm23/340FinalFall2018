@@ -5,7 +5,6 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateCharacterController">
    <children>
       <TextField fx:id="charName" layoutX="50.0" layoutY="56.0" promptText="Character Name" />
@@ -16,7 +15,7 @@
       <ButtonBar layoutX="322.0" layoutY="339.0" prefHeight="40.0" prefWidth="243.0">
         <buttons>
           <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#pressFight" text="Cancel" />
-            <Button mnemonicParsing="false" text="Save" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#pressSave" text="Save" />
             <Button mnemonicParsing="false" text="Done" />
         </buttons>
       </ButtonBar>

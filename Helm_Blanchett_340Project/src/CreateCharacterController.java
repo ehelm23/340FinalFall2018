@@ -58,6 +58,15 @@ public class CreateCharacterController {
             temp.setName(tempName);
             System.out.println("Attack = " + temp.getAttack());
             System.out.println("Name = " + temp.getName());
+            Main.characterList.add(temp);
+
+            System.out.println("Character has been saved in the list");
+
+            charName.setText("");
+            charAttack.setText("");
+            charDefense.setText("");
+            charSpeed.setText("");
+            charHP.setText("");
 
         } catch(Exception e) {
             e.printStackTrace();

@@ -3,11 +3,12 @@
 public class Character {
 
     // Attributes
-    public String name;
-    public double attack;
-    public double defense;
-    public double speed;
-    public double maxHP;
+    private String name;
+    private double attack;
+    private double defense;
+    private double speed;
+    private double maxHP;
+    private int fatiguePoints;
 
     public Character(double attack, double defense, double speed, double health){
         this.name = "";
@@ -15,6 +16,7 @@ public class Character {
         this.defense = defense;
         this.speed = speed;
         this.maxHP = health;
+        this.fatiguePoints = 0;
     }
     // Increase attack
     public void attackUp(double value){
@@ -46,6 +48,14 @@ public class Character {
         speed -= value;
     }
 
+    //Modify health (Pass in negative to decrease, positive to increase)
+    public void modifyHealth(double value){maxHP += value;}
+
+    public void increaseFatigue(){fatiguePoints += 1;}
+
+    public void resetFatigue(){fatiguePoints = 0;}
+
+    //Get Variable values
     public String getName(){
         return this.name;
     }
@@ -64,6 +74,8 @@ public class Character {
     public double getHP(){
         return this.maxHP;
     }
+    public int getFatiguePoints(){return this.fatiguePoints;}
+
     // Restore health
 
 }

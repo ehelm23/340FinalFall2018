@@ -4,7 +4,14 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
+import java.util.ArrayList;
+
 public class Main extends Application {
+
+    public static ArrayList<Character> characterList;
+    public static Character[] chosenFighters;
+    public static ArrayList<Integer> resultArray;
+
 
     /**
      * starts the game
@@ -23,6 +30,8 @@ public class Main extends Application {
 
 
     public static void main(String[] args) {
+
+       characterList = new ArrayList<>();
         launch(args);
     }
 

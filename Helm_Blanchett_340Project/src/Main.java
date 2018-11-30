@@ -1,3 +1,5 @@
+import Threads.Respawn;
+import Threads.Troop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -48,6 +50,12 @@ public class Main extends Application {
 
        System.out.println("Finished testing function");
 
+       // Threads
+       Respawn respawnRunner = new Respawn();
+       respawnRunner.run();
+
+       Troop troopRunner = new Troop();
+       troopRunner.run();
 
         launch(args);
     }

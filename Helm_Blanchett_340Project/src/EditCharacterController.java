@@ -35,6 +35,12 @@ public class EditCharacterController {
     @FXML
     private ChoiceBox blueFighter;
 
+    // TextFields
+    @FXML
+    private TextField numSpawns;
+    @FXML
+    private TextField numTroops;
+
     ObservableList<Character> fighterList;
 
     public StringConverter<Character> charConverter = new StringConverter<Character>() {
@@ -86,6 +92,9 @@ public class EditCharacterController {
     {
         try
         {
+            // Take input from TextFields
+            int spawns = Integer.getInteger(numSpawns.getText());
+            int troops = Integer.getInteger(numTroops.getText());
              Main.chosenFighters[0] = (Character) redFighter.getValue();
              Main.chosenFighters[1] = (Character) blueFighter.getValue();
 

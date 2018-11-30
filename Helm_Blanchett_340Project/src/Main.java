@@ -29,9 +29,26 @@ public class Main extends Application {
     }
 
 
+
+
     public static void main(String[] args) {
 
        characterList = new ArrayList<>();
+       resultArray = new ArrayList<>();
+
+       Character my1 = new Character("Charon",50,50,50,400);
+       Character my2 = new Character("RNzo",75,35,45,450);
+       chosenFighters = new Character[]{my1,my2};
+
+       FightLogic match = new FightLogic();
+
+       System.out.println("Testing fight function");
+
+       match.simulateFight(chosenFighters);
+
+       System.out.println("Finished testing function");
+
+
         launch(args);
     }
 

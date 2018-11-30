@@ -18,6 +18,16 @@ public class Character {
         this.maxHP = health;
         this.fatiguePoints = 0;
     }
+
+    public Character(String tempName,double attack, double defense, double speed, double health)
+    {
+        this.name = tempName;
+        this.attack = attack;
+        this.defense = defense;
+        this.speed = speed;
+        this.maxHP = health;
+        this.fatiguePoints = 0;
+    }
     // Increase attack
     public void attackUp(double value){
         attack += value;
@@ -78,4 +88,9 @@ public class Character {
 
     // Restore health
 
+
+    @Override
+    public String toString() {
+        return this.name;
+    }
 }

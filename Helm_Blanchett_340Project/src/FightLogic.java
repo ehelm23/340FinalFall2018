@@ -5,11 +5,14 @@ public class FightLogic
     //How many turns in a row a character can attack before becoming "fatigued" and taking a penalty
     int fatigueLimit = 3;
     Random dice = new Random();
+    boolean DEBUG = true;
 
     //General fight logic and simulation for a single fight
     public void simulateFight(Character[] fighterArray)
     {
         Character[] fighters = fighterArray;
+
+        if (DEBUG) {System.out.printf("Starting fight between %s and %s\n", fighters[0].getName(),fighters[1].getName());}
 
         int fasterFighter;
         int otherFighter;
@@ -51,7 +54,10 @@ public class FightLogic
             //Referenced random bounding from https://stackoverflow.com/questions/3680637/generate-a-random-double-in-a-range
             double rolledNumber = 1 + 99 * dice.nextDouble();
 
+            if (DEBUG) {System.out.printf("The tipping point is %f, the dice has rolled %f.\n", rollPoint, rolledNumber);}
+
             double damage;
+
             if (rolledNumber < rollPoint)
             {
                 //The faster fighter is attacking
@@ -62,6 +68,8 @@ public class FightLogic
 
                 damage = determineDmg(fighters[fasterFighter],fighters[otherFighter]);
                 fighters[otherFighter].modifyHealth(damage * -1);
+
+                if (DEBUG) {System.out.printf("%s attacked and dealt %f points of damage.\n", fighters[fasterFighter].getName(), damage);}
             }
 
             else
@@ -74,26 +82,35 @@ public class FightLogic
 
                 damage = determineDmg(fighters[otherFighter],fighters[fasterFighter]);
                 fighters[fasterFighter].modifyHealth(damage * -1);
+
+                if (DEBUG) {System.out.printf("%s attacked and dealt %f points of damage.\n", fighters[otherFighter].getName(), damage);}
             }
+
+            if (DEBUG) {System.out.printf("%s - HP: %f.\n %s - HP: %f\n", fighters[0].getName(), fighters[0].getHP(),fighters[1].getName(), fighters[1].getHP());}
 
             //Now that damage has been dealt see if someone was defeated
             if ((fighters[0].getHP() <= 0) || (fighters[1].getHP() <= 0))
             {
+                victory = true;
                 //Figure out which fighter won.
                 if (fighters[0].getHP() <= 0)
                 {
+                    if (DEBUG) {System.out.printf("%s has won the fight. \n",fighters[1].getName());}
                     //The first fighter won.
 
                     //Locking Variable
                     //Write 0 into the result list.
+                    Main.resultArray.add(1);
                     //Unlock Variable
                 }
                 else
                 {
+                    if (DEBUG) {System.out.printf("%s has won the fight. \n",fighters[0].getName());}
                     //One of them is under 0 and if it isn't the first fighter, its the second
 
                     //Lock
                     //Write
+                    Main.resultArray.add(0);
                     //Unlock
                 }
             }

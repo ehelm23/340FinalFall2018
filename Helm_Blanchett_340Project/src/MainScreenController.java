@@ -25,6 +25,7 @@ public class MainScreenController {
             e.printStackTrace();
         }
     }
+
     // Sends the user to the character creation stage.
     public void pressCharacter(ActionEvent event) throws Exception {
         try {

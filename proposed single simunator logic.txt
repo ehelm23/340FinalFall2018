@@ -1,0 +1,33 @@
+Fight Logic for !Pokemon
+
+- Faster speed allows better attack priority. 
+- attacking <variable> times in a row causes "fatigue penalty" 
+
+> DETERMINE ATTACKER
+- Start at 50/50. Add in influcence (up to 75/25) based on speed difference. If there's a chain (+3 attacks), add in penalty of 10 (promote some fairness).
+
+> DETERMINE ATTACK VALUE
+Attack Value can be <variable percentage> above or below the actual attack. 
+
+> Determine Defense Value
+Defense score can block 50 - 75% of the attack. 
+
+>Determine Heath drop
+Health = Health - (AttackVal - DefenseVal) 
+
+Increment Turn Counter. 
+
+Check Health
+
+Repeat
+
+--- if one is ded ---
+
+- Lock Result Array
+- Store Result in Result Array (Winner number) 
+- 
+
+
+
+
+

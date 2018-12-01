@@ -1,0 +1,20 @@
+Proposed Logic for Team fight of !Pokemon
+
+What if it was an army of identical troops, and it was modifying an array. Each thread, though running one at a time, would go through the array of troops faster because once 1 fight finished, it could target another soldier (which would theoretically already be damaged).
+	- This would make the function more dependent on concurrency 
+
+
+- One thread per (index) of the troop arrays. 
+- Function stores last modified index
+- Function is initialized with original target index. 
+
+> Lock Troop Arrays
+
+> Function checks troop array for target. If there, take it. If not, then take the first in the array. 
+
+> Calculate Who attacks (Fatigue is part of character class), attack value, defense value, health drop
+
+> Check Health Value. If one is < 0
+	> Remove element from array. 
+
+> Unlock Array 

@@ -1,0 +1,49 @@
+Global Respawn-dead tag 
+
+TROOPER-------------------
+
+- Array holds N number of Troops. 
+
+- Troops are removed through "fight function" 
+
+- If a soldier is defeated, signal respawner to respawn 
+
+
+LOGIC: 
+	(within "loop till done. Done when tag changes" )
+	
+	Host fight between the top element of the list
+
+	If Character (in either is defeated), then: 
+
+		Lock the defeated counters
+		
+		Increment defeated count
+	
+		Unlock defeated Counter		
+
+		unlock proper respawner
+		
+
+
+
+RESPAWNER---------------------- (one for each team)
+
+- Lock until there is open spot in troop array. 
+
+- Check if there the death is over 
+
+
+	LOGIC: 
+		(within "loop until killed. Killed if respawn number is greater than Max Respawns") 
+
+		Sem_Wait(
+
+		Add to the troop array
+		
+		Increment counter		
+
+	
+
+
+[ Char HP 0, Char HP 3]

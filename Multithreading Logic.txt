@@ -1,0 +1,49 @@
+Main (troop) thread Kicking off fights: 
+- Called once 
+
+ArrayList RedTeam
+
+AraayList BlueTeam
+--Characters gotten from gui to cread teams with
+
+int RedScore
+
+intBlueScore
+
+While (RedTeam || BlueTeam > 0)
+{
+
+	Get Smallest team size 
+	
+	Run fight between opposing members of team (0 vs 0), (1 vs 1), etc. (in new thread) (up to smallest team size) 
+	(fightThread)	
+
+	(wait for all to join) 
+
+	Remove all chracter with HP <= 0 
+}
+
+Check which team won (if RedTeam > 0)
+
+
+----------------------------------------------
+
+
+
+fightThread()
+{
+	run Fight between passed in characters (or globally referenced) 
+	
+	Edit Troop score (Concurrency Locked) 
+}
+----------------------------------
+
+TO DO
+
+- Modify "Troop Thread" 
+	- Create Array based on Character input (size and character selected)
+
+- Create FightThread 
+
+-
+ 

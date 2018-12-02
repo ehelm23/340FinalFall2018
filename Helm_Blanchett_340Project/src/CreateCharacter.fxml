@@ -12,8 +12,9 @@
       <TextField fx:id="charDefense" layoutX="50.0" layoutY="136.0" promptText="Defense (1.0 - 100.0)" />
       <TextField fx:id="charSpeed" layoutX="50.0" layoutY="177.0" promptText="Speed (1.0 - 100.0)" />
       <TextField fx:id="charHP" layoutX="50.0" layoutY="216.0" promptText="Hit Points (100.0 - 500.0)" />
-      <ButtonBar layoutX="322.0" layoutY="339.0" prefHeight="40.0" prefWidth="243.0">
+      <ButtonBar layoutX="167.0" layoutY="339.0" prefHeight="40.0" prefWidth="505.0">
         <buttons>
+            <Button fx:id="randomButton" mnemonicParsing="false" onAction="#randomStats" prefHeight="25.0" prefWidth="152.0" text="Randomize Stats" />
           <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#pressFight" text="Cancel" />
             <Button fx:id="saveButton" mnemonicParsing="false" onAction="#pressSave" text="Save" />
             <Button mnemonicParsing="false" text="Done" />

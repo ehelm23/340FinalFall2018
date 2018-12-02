@@ -1,5 +1,3 @@
-import Threads.Respawn;
-import Threads.Troop;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -11,7 +9,6 @@ import java.util.ArrayList;
 public class Main extends Application {
 
     public static ArrayList<Character> characterList;
-    public static Character[] chosenFighters;
     public static ArrayList<Integer> resultArray;
 
     //Semaphore for soldierSpans

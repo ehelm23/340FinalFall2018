@@ -8,6 +8,8 @@ import javafx.stage.Stage;
 
 
 import java.awt.*;
+import java.text.DecimalFormat;
+import java.util.Random;
 
 
 public class CreateCharacterController {
@@ -19,6 +21,9 @@ public class CreateCharacterController {
     private javafx.scene.control.Button saveButton;
     @FXML
     private javafx.scene.control.Button doneButton;
+
+    @FXML
+    private javafx.scene.control.Button randomButton;
 
     // TextFields
     @FXML
@@ -32,7 +37,17 @@ public class CreateCharacterController {
     @FXML
     private javafx.scene.control.TextField charHP;
 
+    Random statGen = new Random();
 
+    double maxAttk = 100;
+    double minAttk = 45;
+    double maxSpd = 100;
+    double minSpd = 45;
+    double maxDef = 100;
+    double minDef = 45;
+
+    double maxHP = 500;
+    double minHP = 200;
 
     // Sends the user back to the main screen stage.
     public void pressFight(ActionEvent event) throws Exception {
@@ -71,5 +86,31 @@ public class CreateCharacterController {
         } catch(Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public void randomStats(ActionEvent event) throws Exception
+    {
+
+        try
+        {
+            double rngAttk = minAttk + (maxAttk - minAttk) * statGen.nextDouble();
+            double rngDef = minDef + (maxDef - minDef) * statGen.nextDouble();
+            double rngSpd = minDef + (maxDef - minDef) * statGen.nextDouble();
+            double rngHP = minHP + (maxHP - minHP) * statGen.nextDouble();
+
+            //Formatter (for nicer UX) referenced from https://stackoverflow.com/questions/153724/how-to-round-a-number-to-n-decimal-places-in-java
+            DecimalFormat df = new DecimalFormat("#.##");
+
+            charAttack.setText(df.format(rngAttk));
+            charDefense.setText(df.format(rngDef));
+            charSpeed.setText(df.format(rngSpd));
+            charHP.setText(df.format(rngHP));
+        }
+
+
+        catch(Exception e) {
+            e.printStackTrace();
+        }
+
     }
 }

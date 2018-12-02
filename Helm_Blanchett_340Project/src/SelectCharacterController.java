@@ -1,7 +1,4 @@
-import Threads.Troop;
-import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
-import javafx.collections.ListChangeListener;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -9,15 +6,12 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.ComboBox;
 import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
-import java.awt.*;
 import java.util.*;
-import java.util.List;
 
-public class EditCharacterController {
+public class SelectCharacterController {
 
 
     // Buttons
@@ -35,8 +29,8 @@ public class EditCharacterController {
     public ChoiceBox blueFighter;
 
     // TextFields
-    @FXML
-    public javafx.scene.control.TextField numSpawns;
+//    @FXML
+//    public javafx.scene.control.TextField numSpawns;
     @FXML
     public javafx.scene.control.TextField numTroops;
 
@@ -94,9 +88,11 @@ public class EditCharacterController {
             // (Erik) Let's grab the number of troops
             int troops = Integer.parseInt(numTroops.getText());
             System.out.println("Troops = " + troops);
+
             // (Erik) Let's initialize our arrayLists
             ArrayList<Character> redTeam = new ArrayList<>();
             ArrayList<Character> blueTeam = new ArrayList<>();
+
             // (Erik) Initialize the teams.
             for (int i = 0; i < troops; i++){
                 redTeam.add((Character)redFighter.getValue());
@@ -107,6 +103,7 @@ public class EditCharacterController {
             System.out.println(blueTeam);
 
              // (Erik) Let's test if the stats are all correct.
+            System.out.println("Red Team's Name/Attk/Def/Spd/HP");
             System.out.println(redTeam.get(0).getName());
             System.out.println(redTeam.get(0).getAttack());
             System.out.println(redTeam.get(0).getDefense());
@@ -115,6 +112,7 @@ public class EditCharacterController {
              //System.out.printf("Selected %s to fight %s", Main.chosenFighters[0].getName(),Main.chosenFighters[1].getName());
 
             //(Erik) Let's call our troop thread
+            //(WB) This handles all the battles and operations with the characters selected
             Troop troopRunner = new Troop();
             troopRunner.run(redTeam, blueTeam);
 

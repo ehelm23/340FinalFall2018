@@ -16,7 +16,7 @@ public class MainScreenController {
     public void pressFight(ActionEvent event) throws Exception {
         try {
             fightButton.getScene().getWindow().hide();
-            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("EditCharacter.fxml"));
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("SelectCharacter.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));

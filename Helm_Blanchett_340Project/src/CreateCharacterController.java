@@ -58,10 +58,11 @@ public class CreateCharacterController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
+
     public void pressSave(ActionEvent event) throws Exception {
         try {
             String tempName = charName.getText();
@@ -83,16 +84,15 @@ public class CreateCharacterController {
             charSpeed.setText("");
             charHP.setText("");
 
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void randomStats(ActionEvent event) throws Exception
-    {
+    //Randomize the stats chosen for the figuter
+    public void randomStats(ActionEvent event) throws Exception {
 
-        try
-        {
+        try {
             double rngAttk = minAttk + (maxAttk - minAttk) * statGen.nextDouble();
             double rngDef = minDef + (maxDef - minDef) * statGen.nextDouble();
             double rngSpd = minDef + (maxDef - minDef) * statGen.nextDouble();
@@ -105,10 +105,7 @@ public class CreateCharacterController {
             charDefense.setText(df.format(rngDef));
             charSpeed.setText(df.format(rngSpd));
             charHP.setText(df.format(rngHP));
-        }
-
-
-        catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
 

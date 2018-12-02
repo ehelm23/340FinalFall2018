@@ -10,7 +10,7 @@ public class Character {
     private double maxHP;
     private int fatiguePoints;
 
-    public Character(double attack, double defense, double speed, double health){
+    public Character(double attack, double defense, double speed, double health) {
         this.name = "";
         this.attack = attack;
         this.defense = defense;
@@ -19,8 +19,7 @@ public class Character {
         this.fatiguePoints = 0;
     }
 
-    public Character(String tempName,double attack, double defense, double speed, double health)
-    {
+    public Character(String tempName, double attack, double defense, double speed, double health) {
         this.name = tempName;
         this.attack = attack;
         this.defense = defense;
@@ -28,66 +27,84 @@ public class Character {
         this.maxHP = health;
         this.fatiguePoints = 0;
     }
+
     // Increase attack
-    public void attackUp(double value){
+    public void attackUp(double value) {
         attack += value;
     }
 
     // Decrease attack
-    public void attackDown(double value){
+    public void attackDown(double value) {
         attack -= value;
     }
 
     // Increase defense
-    public void defenseUp(double value){
+    public void defenseUp(double value) {
         defense += value;
     }
 
     // Decrease defense
-    public void defenseDown(double value){
+    public void defenseDown(double value) {
         defense -= value;
     }
 
     // Increase speed
-    public void speedUp(double value){
+    public void speedUp(double value) {
         speed += value;
     }
 
     // Decrease speed
-    public void speedDown(double value){
+    public void speedDown(double value) {
         speed -= value;
     }
 
     //Modify health (Pass in negative to decrease, positive to increase)
-    public void modifyHealth(double value){maxHP += value;}
+    public void modifyHealth(double value) {
+        maxHP += value;
+    }
 
-    public void increaseFatigue(){fatiguePoints += 1;}
+    public void increaseFatigue() {
+        fatiguePoints += 1;
+    }
 
-    public void resetFatigue(){fatiguePoints = 0;}
+    public void resetFatigue() {
+        fatiguePoints = 0;
+    }
 
     //Get Variable values
-    public String getName(){
+    public String getName() {
         return this.name;
     }
-    public void setName(String name){
+
+    public void setName(String name) {
         this.name = name;
     }
-    public double getAttack(){
+
+    public double getAttack() {
         return this.attack;
     }
-    public double getDefense(){
+
+    public double getDefense() {
         return this.defense;
     }
-    public double getSpeed(){
+
+    public double getSpeed() {
         return this.speed;
     }
-    public double getHP(){
+
+    public double getHP() {
         return this.maxHP;
     }
-    public int getFatiguePoints(){return this.fatiguePoints;}
+
+    public int getFatiguePoints() {
+        return this.fatiguePoints;
+    }
 
     // Restore health
 
+    public Character dupCharacter() {
+        return new Character(this.name, this.attack, this.defense, this.speed, this.maxHP);
+    }
 
     @Override
     public String toString() {

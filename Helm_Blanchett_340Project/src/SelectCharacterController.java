@@ -48,14 +48,13 @@ public class SelectCharacterController {
         }
     };
 
-    public void initialize(){
+    public void initialize() {
 
         int numChars = Main.characterList.size();
 
         fighterList = FXCollections.observableArrayList();
 
-        for (int i = 0; i < numChars; i++)
-        {
+        for (int i = 0; i < numChars; i++) {
             fighterList.add(Main.characterList.get(i));
             // blueFighter.getItems().add(Main.characterList.get(i).getName());
             // redFighter.getItems().add(Main.characterList.get(i).getName());
@@ -76,15 +75,13 @@ public class SelectCharacterController {
             Stage stage = new Stage();
             stage.setScene(new Scene(root1));
             stage.show();
-        } catch(Exception e) {
+        } catch (Exception e) {
             e.printStackTrace();
         }
     }
 
-    public void startFight(ActionEvent event) throws Exception
-    {
-        try
-        {
+    public void startFight(ActionEvent event) throws Exception {
+        try {
             // (Erik) Let's grab the number of troops
             int troops = Integer.parseInt(numTroops.getText());
             System.out.println("Troops = " + troops);
@@ -94,31 +91,31 @@ public class SelectCharacterController {
             ArrayList<Character> blueTeam = new ArrayList<>();
 
             // (Erik) Initialize the teams.
-            for (int i = 0; i < troops; i++){
-                redTeam.add((Character)redFighter.getValue());
-                blueTeam.add((Character)blueFighter.getValue());
-        }
+            for (int i = 0; i < troops; i++) {
+                redTeam.add(((Character) redFighter.getValue()).dupCharacter());
+                blueTeam.add(((Character) blueFighter.getValue()).dupCharacter());
+            }
             // (Erik) Let's test if my ArrayList's are properly initialized.
             System.out.println(redTeam);
             System.out.println(blueTeam);
 
-             // (Erik) Let's test if the stats are all correct.
+            // (Erik) Let's test if the stats are all correct.
             System.out.println("Red Team's Name/Attk/Def/Spd/HP");
             System.out.println(redTeam.get(0).getName());
             System.out.println(redTeam.get(0).getAttack());
             System.out.println(redTeam.get(0).getDefense());
             System.out.println(redTeam.get(0).getSpeed());
             System.out.println(redTeam.get(0).getHP());
-             //System.out.printf("Selected %s to fight %s", Main.chosenFighters[0].getName(),Main.chosenFighters[1].getName());
+            //System.out.printf("Selected %s to fight %s", Main.chosenFighters[0].getName(),Main.chosenFighters[1].getName());
 
             //(Erik) Let's call our troop thread
             //(WB) This handles all the battles and operations with the characters selected
-            Troop troopRunner = new Troop();
-            troopRunner.run(redTeam, blueTeam);
+            WarRunner warRunnerRunner = new WarRunner();
+            warRunnerRunner.run(redTeam, blueTeam);
 
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-
-        catch(Exception e) {e.printStackTrace();}
     }
 
 

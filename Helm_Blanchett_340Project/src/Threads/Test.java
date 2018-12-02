@@ -14,7 +14,7 @@ public class Test extends Thread
     {
         for (int i = 0; i < runTo; i++)
         {
-            System.
+            System.out.println("Doing something!");
         }
 
     }

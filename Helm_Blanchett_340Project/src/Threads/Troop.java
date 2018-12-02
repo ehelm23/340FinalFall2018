@@ -7,10 +7,15 @@ public class Troop extends Thread {
         Character redSoldier;
         Character blueSoldier;
 
+         //public ArrayList<Character> redTeam = new ArrayList<>();
+
         boolean battleComplete = false;
 
-        public void run()
+        public void run(ArrayList<Character> redTeam, ArrayList<Character> blueTeam)
         {
+                // (Erik) Let's test if my ArrayList's are properly initialized.
+                System.out.println(redTeam);
+                System.out.println(blueTeam);
 
 //            while (!battleComplete)
 //                {
@@ -32,15 +37,6 @@ public class Troop extends Thread {
 
         }
 
-        public void spawnRedSoldier(Character reinforce)
-        {
-            this.redSoldier = reinforce;
-        }
-
-        public void spawnBlueSoldier(Character reinforce)
-        {
-            this.blueSoldier = reinforce;
-        }
 
 
 

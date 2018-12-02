@@ -1,3 +1,4 @@
+import Threads.Troop;
 import javafx.beans.InvalidationListener;
 import javafx.collections.FXCollections;
 import javafx.collections.ListChangeListener;
@@ -13,10 +14,8 @@ import javafx.stage.Stage;
 import javafx.util.StringConverter;
 
 import java.awt.*;
-import java.util.Collection;
-import java.util.Iterator;
+import java.util.*;
 import java.util.List;
-import java.util.ListIterator;
 
 public class EditCharacterController {
 
@@ -30,16 +29,16 @@ public class EditCharacterController {
 
     // ChoiceBox
     @FXML
-    private ChoiceBox redFighter;
+    public ChoiceBox redFighter;
 
     @FXML
-    private ChoiceBox blueFighter;
+    public ChoiceBox blueFighter;
 
     // TextFields
     @FXML
-    private TextField numSpawns;
+    public javafx.scene.control.TextField numSpawns;
     @FXML
-    private TextField numTroops;
+    public javafx.scene.control.TextField numTroops;
 
     ObservableList<Character> fighterList;
 
@@ -92,15 +91,32 @@ public class EditCharacterController {
     {
         try
         {
-            // Take input from TextFields
-            int spawns = Integer.getInteger(numSpawns.getText());
-            int troops = Integer.getInteger(numTroops.getText());
-             Main.chosenFighters[0] = (Character) redFighter.getValue();
-             Main.chosenFighters[1] = (Character) blueFighter.getValue();
+            // (Erik) Let's grab the number of troops
+            int troops = Integer.parseInt(numTroops.getText());
+            System.out.println("Troops = " + troops);
+            // (Erik) Let's initialize our arrayLists
+            ArrayList<Character> redTeam = new ArrayList<>();
+            ArrayList<Character> blueTeam = new ArrayList<>();
+            // (Erik) Initialize the teams.
+            for (int i = 0; i < troops; i++){
+                redTeam.add((Character)redFighter.getValue());
+                blueTeam.add((Character)blueFighter.getValue());
+        }
+            // (Erik) Let's test if my ArrayList's are properly initialized.
+            System.out.println(redTeam);
+            System.out.println(blueTeam);
 
-             System.out.printf("Selected %s to fight %s", Main.chosenFighters[0].getName(),Main.chosenFighters[1].getName());
+             // (Erik) Let's test if the stats are all correct.
+            System.out.println(redTeam.get(0).getName());
+            System.out.println(redTeam.get(0).getAttack());
+            System.out.println(redTeam.get(0).getDefense());
+            System.out.println(redTeam.get(0).getSpeed());
+            System.out.println(redTeam.get(0).getHP());
+             //System.out.printf("Selected %s to fight %s", Main.chosenFighters[0].getName(),Main.chosenFighters[1].getName());
 
-
+            //(Erik) Let's call our troop thread
+            Troop troopRunner = new Troop();
+            troopRunner.run(redTeam, blueTeam);
 
         }
 

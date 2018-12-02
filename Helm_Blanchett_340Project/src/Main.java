@@ -62,8 +62,8 @@ public class Main extends Application {
      //  Respawn respawnRunner = new Respawn();
      //  respawnRunner.run();
 
-       Troop troopRunner = new Troop();
-       troopRunner.run();
+       //Troop troopRunner = new Troop();
+       //troopRunner.run();
 
         launch(args);
     }

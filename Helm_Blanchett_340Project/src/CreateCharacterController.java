@@ -16,12 +16,9 @@ public class CreateCharacterController {
 
     // Buttons
     @FXML
-    private javafx.scene.control.Button cancelButton;
-    @FXML
     private javafx.scene.control.Button saveButton;
     @FXML
     private javafx.scene.control.Button doneButton;
-
     @FXML
     private javafx.scene.control.Button randomButton;
 
@@ -56,7 +53,7 @@ public class CreateCharacterController {
     // Sends the user back to the main screen stage.
     public void pressFight(ActionEvent event) throws Exception {
         try {
-            cancelButton.getScene().getWindow().hide();
+            doneButton.getScene().getWindow().hide();
             FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("MainScreen.fxml"));
             Parent root1 = (Parent) fxmlLoader.load();
             Stage stage = new Stage();
@@ -66,7 +63,7 @@ public class CreateCharacterController {
             e.printStackTrace();
         }
     }
-
+    // Creates and saves the Character.
     public void pressSave(ActionEvent event) throws Exception {
         try {
             String tempName = charName.getText();
@@ -95,7 +92,7 @@ public class CreateCharacterController {
         }
     }
 
-    //Randomize the stats chosen for the figuter
+    //Randomize the stats chosen for the fighter
     public void randomStats(ActionEvent event) throws Exception {
 
         try {

@@ -1,23 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
-<?import javafx.scene.text.TextFlow?>
-
 
 <AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="WarRunner">
    <children>
-      <Label layoutX="161.0" layoutY="21.0" text="Simulating War. . .">
+      <Label fx:id="results" layoutX="141.0" layoutY="21.0" text="Simulating War. . .">
          <font>
             <Font name="System Bold" size="32.0" />
          </font>
       </Label>
-      <TextFlow fx:id="display" layoutX="94.0" layoutY="91.0" prefHeight="200.0" prefWidth="412.0" />
-      <Label fx:id="results" layoutX="103.0" layoutY="291.0">
-         <font>
-            <Font name="System Bold" size="12.0" />
-         </font>
-      </Label>
+      <TextArea fx:id="display" layoutX="3.0" layoutY="80.0" prefHeight="316.0" prefWidth="592.0" />
    </children>
 </AnchorPane>

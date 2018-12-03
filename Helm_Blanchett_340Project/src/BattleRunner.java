@@ -16,12 +16,14 @@ public class BattleRunner extends Thread
         if (fightWinner == 'r')
         {
             if (DEBUG) System.out.printf("Red fighter has won battle %d. Health remaining is %f\n", soldierNumber, redFighter.getHP());
+            hostingWarRunner.appendText(String.format("Red fighter has won battle %d. Health remaining is %f\n", soldierNumber, redFighter.getHP()));
             hostingWarRunner.increaseScore(fightWinner, redFighter.getHP());
         }
 
         else if (fightWinner == 'b')
         {
             if (DEBUG) System.out.printf("Blue fighter has won battle %d. Health remaining is %f\n", soldierNumber, blueFighter.getHP());
+            hostingWarRunner.appendText(String.format("Blue fighter has won battle %d. Health remaining is %f\n", soldierNumber, blueFighter.getHP()));
             hostingWarRunner.increaseScore(fightWinner, blueFighter.getHP());
         }
 

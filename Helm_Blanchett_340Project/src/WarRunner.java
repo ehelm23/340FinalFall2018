@@ -1,5 +1,6 @@
 import javafx.fxml.FXML;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextArea;
 import javafx.scene.text.TextFlow;
 
 import java.util.ArrayList;
@@ -23,14 +24,15 @@ public class WarRunner extends Thread {
     @FXML
     public Label results;
 
-    // TextFlow
-    @FXML
-            private TextFlow display;
+    // TextArea
+    public TextArea display;
+
+
 
     Semaphore scoreLock = new Semaphore(1, true);
 
     public void run(ArrayList<Character> redTeam, ArrayList<Character> blueTeam) throws InterruptedException {
-
+        display.setText("");
         // (Erik) Let's test if my ArrayList's are properly initialized.
         System.out.println("Printing the Array Lists from inside the WarRunner thread");
         System.out.println(redTeam);
@@ -65,6 +67,7 @@ public class WarRunner extends Thread {
         //If an army still has fighters, then the war isn't over!
         while ((redTeam.size() > 0) && (blueTeam.size() > 0))
         {
+            appendText(String.format("Round %d is commencing.\n", this.roundNumber));
             int numfights;
             //Get the smaller team size and use it as the number of fights/threads to initialize
             if (redTeam.size() < blueTeam.size()) { numfights = redTeam.size();}
@@ -94,7 +97,7 @@ public class WarRunner extends Thread {
                 System.out.println("This is a status check on the teams. ");
 
 
-                    //display.setAccessibleText("This is working!\n");
+
                     System.out.printf("Red Team --- %d soldiers remain -----\n", redTeam.size());
                     for (Character fighter : redTeam) {
                         System.out.printf("Red Team Soldier, HP: %f\n", fighter.getHP());
@@ -138,27 +141,36 @@ public class WarRunner extends Thread {
             }
 
             if (DEBUG) System.out.println("This is a status check on the teams after removal of defeated fighters. ");
-
+            //appendText(String.format("%d Red Army soldiers remain",redTeam.size()));
             System.out.printf("Red Team --- %d soldiers remain -----\n",redTeam.size());
             if (DEBUG) {
                 for (Character fighter : redTeam) {
                     System.out.printf("Red Team Soldier, HP: %f\n", fighter.getHP());
                 }
             }
-
+            //appendText(String.format("%d Blue Army soldiers remain\n",blueTeam.size()));
             System.out.printf("Blue Team: --- %d soldiers remain -----\n", blueTeam.size());
             if (DEBUG) {
                 for (Character fighter : blueTeam) {
                     System.out.printf("Blue Team Soldier, HP: %f\n", fighter.getHP());
                 }
             }
+            appendText(String.format("After round %d the score is %d (Red) to %d (Blue)\n", (this.roundNumber - 1),redScore,blueScore));
+            appendText(String.format("Red Army has %d soldiers remaining,  Blue Army has %d soldiers remaining.\n", redTeam.size(), blueTeam.size()));
 
         }
 
         //The while loop has ended, meaning that one of the teams has been completely defeated.
-        //results.setText("The war has concluded, with a final score of ");
+        appendText(String.format("The war has concluded, with a final score of %d (Red) to %d (Blue)\n",redScore,blueScore));
+        if (redScore > blueScore){
+            results.setText("Red Army is the winner!");
+        }
+        else results.setText("Blue Army is the winner!");
         System.out.printf("The war has concluded, with a final score of %d (Red) to %d (Blue)\n",redScore,blueScore);
 
+    }
+    public void appendText(String text){
+        display.setText(display.getText() + "\n" + text);
     }
 
     //A function to increase the team scores in the simulation. Itended to be called from the BattleRunner threads

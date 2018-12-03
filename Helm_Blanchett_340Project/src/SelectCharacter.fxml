@@ -3,6 +3,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.ButtonBar?>
 <?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
@@ -24,5 +25,20 @@
          </font>
       </Text>
       <TextField fx:id="numTroops" layoutX="226.0" layoutY="188.0" promptText="# Troops" />
+      <Label layoutX="84.0" layoutY="51.0" text="Red Army">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="417.0" layoutY="51.0" text="Blue Army">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="212.0" layoutY="14.0" prefHeight="40.0" prefWidth="161.0" text="Select Fighters">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
    </children>
 </AnchorPane>

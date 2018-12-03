@@ -51,7 +51,6 @@ public class SelectCharacterController {
     public void initialize() {
 
         int numChars = Main.characterList.size();
-
         fighterList = FXCollections.observableArrayList();
 
         for (int i = 0; i < numChars; i++) {
@@ -117,7 +116,7 @@ public class SelectCharacterController {
             stage.setScene(new Scene(root1));
             stage.show();
 
-            WarRunner warRunnerRunner = new WarRunner();
+            WarRunner warRunnerRunner = fxmlLoader.getController();
             warRunnerRunner.run(redTeam, blueTeam);
 
 

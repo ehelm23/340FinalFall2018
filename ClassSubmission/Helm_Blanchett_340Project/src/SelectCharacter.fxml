@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="SelectCharacterController">
+   <children>
+      <ButtonBar layoutX="386.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0">
+        <buttons>
+          <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#pressCancel" text="Cancel" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#startFight" text="Fight!" />
+        </buttons>
+      </ButtonBar>
+      <ChoiceBox id="redFighter" fx:id="redFighter" layoutX="53.0" layoutY="87.0" prefWidth="150.0" />
+      <ChoiceBox fx:id="blueFighter" layoutX="386.0" layoutY="87.0" prefWidth="150.0" />
+      <Text layoutX="280.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="vs.">
+         <font>
+            <Font size="36.0" />
+         </font>
+      </Text>
+      <TextField fx:id="numTroops" layoutX="226.0" layoutY="188.0" promptText="# Troops" />
+      <Label layoutX="84.0" layoutY="51.0" text="Red Army">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="417.0" layoutY="51.0" text="Blue Army">
+         <font>
+            <Font name="System Bold" size="19.0" />
+         </font>
+      </Label>
+      <Label layoutX="212.0" layoutY="14.0" prefHeight="40.0" prefWidth="161.0" text="Select Fighters">
+         <font>
+            <Font name="System Bold" size="22.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

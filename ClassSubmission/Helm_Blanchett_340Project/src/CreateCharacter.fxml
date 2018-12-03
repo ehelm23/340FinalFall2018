@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ButtonBar?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/10.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="CreateCharacterController">
+   <children>
+      <TextField fx:id="charName" layoutX="50.0" layoutY="56.0" promptText="Character Name" />
+      <TextField fx:id="charAttack" layoutX="50.0" layoutY="95.0" promptText=" Attack (1.0 - 100.0)" />
+      <TextField fx:id="charDefense" layoutX="50.0" layoutY="136.0" promptText="Defense (1.0 - 100.0)" />
+      <TextField fx:id="charSpeed" layoutX="50.0" layoutY="177.0" promptText="Speed (1.0 - 100.0)" />
+      <TextField fx:id="charHP" layoutX="50.0" layoutY="216.0" promptText="Hit Points (100.0 - 500.0)" />
+      <ButtonBar layoutX="134.0" layoutY="346.0" prefHeight="40.0" prefWidth="505.0">
+        <buttons>
+            <Button fx:id="randomButton" mnemonicParsing="false" onAction="#randomStats" prefHeight="25.0" prefWidth="152.0" text="Randomize Stats" />
+            <Button fx:id="saveButton" mnemonicParsing="false" onAction="#pressSave" text="Save" />
+            <Button fx:id="doneButton" mnemonicParsing="false" onAction="#pressFight" text="Done" />
+        </buttons>
+      </ButtonBar>
+      <Label fx:id="displayChar" layoutX="187.0" layoutY="309.0" prefHeight="17.0" prefWidth="466.0">
+         <font>
+            <Font name="System Bold" size="14.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

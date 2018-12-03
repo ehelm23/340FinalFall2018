@@ -1,3 +1,7 @@
+import javafx.fxml.FXML;
+import javafx.scene.control.Label;
+import javafx.scene.text.TextFlow;
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.concurrent.Semaphore;
@@ -14,6 +18,14 @@ public class WarRunner extends Thread {
     int healthBonus = 5;
 
     boolean DEBUG = true;
+
+    // Label
+    @FXML
+    public Label results;
+
+    // TextFlow
+    @FXML
+            private TextFlow display;
 
     Semaphore scoreLock = new Semaphore(1, true);
 
@@ -82,7 +94,7 @@ public class WarRunner extends Thread {
                 System.out.println("This is a status check on the teams. ");
 
 
-
+                    //display.setAccessibleText("This is working!\n");
                     System.out.printf("Red Team --- %d soldiers remain -----\n", redTeam.size());
                     for (Character fighter : redTeam) {
                         System.out.printf("Red Team Soldier, HP: %f\n", fighter.getHP());
@@ -144,6 +156,7 @@ public class WarRunner extends Thread {
         }
 
         //The while loop has ended, meaning that one of the teams has been completely defeated.
+        //results.setText("The war has concluded, with a final score of ");
         System.out.printf("The war has concluded, with a final score of %d (Red) to %d (Blue)\n",redScore,blueScore);
 
     }

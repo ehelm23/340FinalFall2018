@@ -13,7 +13,7 @@
       <ButtonBar layoutX="386.0" layoutY="346.0" prefHeight="40.0" prefWidth="200.0">
         <buttons>
           <Button fx:id="cancelButton" mnemonicParsing="false" onAction="#pressCancel" text="Cancel" />
-            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#startFight" text="Next" />
+            <Button fx:id="nextButton" mnemonicParsing="false" onAction="#startFight" text="Fight!" />
         </buttons>
       </ButtonBar>
       <ChoiceBox id="redFighter" fx:id="redFighter" layoutX="53.0" layoutY="87.0" prefWidth="150.0" />

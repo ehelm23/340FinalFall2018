@@ -37,6 +37,10 @@ public class CreateCharacterController {
     @FXML
     private javafx.scene.control.TextField charHP;
 
+    // Labels
+    @FXML
+    private javafx.scene.control.Label displayChar;
+
     Random statGen = new Random();
 
     double maxAttk = 100;
@@ -77,6 +81,8 @@ public class CreateCharacterController {
             Main.characterList.add(temp);
 
             System.out.println("Character has been saved in the list");
+
+            displayChar.setText(tempName + " has been created and saved!");
 
             charName.setText("");
             charAttack.setText("");

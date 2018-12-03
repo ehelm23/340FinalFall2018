@@ -110,8 +110,17 @@ public class SelectCharacterController {
 
             //(Erik) Let's call our troop thread
             //(WB) This handles all the battles and operations with the characters selected
+            //cancelButton.getScene().getWindow().hide();
+            FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("WarRunner.fxml"));
+            Parent root1 = (Parent) fxmlLoader.load();
+            Stage stage = new Stage();
+            stage.setScene(new Scene(root1));
+            stage.show();
+
             WarRunner warRunnerRunner = new WarRunner();
             warRunnerRunner.run(redTeam, blueTeam);
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
